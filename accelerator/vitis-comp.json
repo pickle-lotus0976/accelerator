@@ -1,0 +1,9 @@
+{
+  "name": "accelerator",
+  "type": "HLS",
+  "configuration": {
+    "componentType": "HLS",
+    "configFiles": ["..\/accelerator.cfg"],
+    "work_dir": "."
+  }
+}
