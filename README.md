@@ -10,9 +10,9 @@ The accelerator processes 12-bit integer inputs against a set of hardcoded inter
 ## System Architecture
 The design uses a **Task-Level Parallelism (TLP)** approach using the `DATAFLOW` pragma. The processing pipeline is divided into three distinct stages connected by HLS streams (FIFOs), allowing overlapping execution:
 
-1.  **Read Engine (`read_data`)**: Fetches data from global memory via AXI4-Master and pushes it to an input stream.
-2.  **Compute Engine (`compute`)**: Reads from the stream, performs the weighted sum multiplication, and pushes results to an output stream.
-3.  **Write Engine (`write_data`)**: Reads results from the stream and writes them back to global memory via AXI4-Master.
+1.  **Read Stage (`read_data`)**: Fetches data from global memory via AXI4-Master and pushes it to an input stream.
+2.  **Compute Stage (`compute`)**: Reads from the stream, performs the weighted sum multiplication, and pushes results to an output stream.
+3.  **Write Stage (`write_data`)**: Reads results from the stream and writes them back to global memory via AXI4-Master.
 
 ### Key Optimizations
 * **Pipelining:** All loops are pipelined with `II=1` (Initiation Interval of 1) for maximum throughput.
@@ -23,7 +23,7 @@ The design uses a **Task-Level Parallelism (TLP)** approach using the `DATAFLOW`
 
 | Specification | Value |
 | :--- | :--- |
-| **Target Device** | Xilinx Zynq-7000 (`xc7z007sclg400-1`) |
+| **Target Device** | Xilinx Zynq-7000 ZedBoard (`xc7z007sclg400-1`) |
 | **Clock Frequency** | 100 MHz (10.00 ns period) |
 | **Input Data Width** | `ap_int<12>` |
 | **Output Data Width** | `ap_int<16>` |
