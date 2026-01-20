@@ -1,0 +1,13 @@
+{
+  "name": "accelerator",
+  "type": "HLS",
+  "configuration": {
+    "componentType": "HLS",
+    "configFiles": [
+      "accelerator.cfg"
+    ],
+    "work_dir": "accelerator"
+  },
+  "useSysrootToolchain": false,
+  "template": "empty_hls_component"
+}
