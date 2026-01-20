@@ -3,12 +3,12 @@
 ![Vitis HLS](https://img.shields.io/badge/Vitis_HLS-2025.1-blue) ![Target Device](https://img.shields.io/badge/Target-Zynq_7000-green) ![Language](https://img.shields.io/badge/Language-C++-orange)
 
 ## Overview
-This repository contains a high-performance hardware accelerator designed using **Vitis HLS** to perform weighted sum computations. The IP core is optimized for the **Xilinx Zynq-7000** platform (`xc7z007sclg400-1`) and utilizes a stream-based dataflow architecture to maximize throughput and parallel execution.
+This repository contains a simple hardware accelerator designed using **Vitis HLS** to perform weighted sum computations. The IP core is optimized for the **Xilinx Zynq-7000** platform (`xc7z007sclg400-1`) and utilizes a stream-based dataflow architecture to maximize throughput and parallel execution.
 
-The accelerator processes 12-bit integer inputs against a set of hardcoded internal weights, producing 16-bit results, and is fully interface-compatible with AXI4 protocols for seamless integration into embedded systems.
+The accelerator processes 12-bit integer inputs against a set of hardcoded internal weights, producing 16-bit results, with AXI4 protocols for integration into embedded systems.
 
 ## System Architecture
-The design employs a **Task-Level Parallelism (TLP)** approach using the `DATAFLOW` pragma. The processing pipeline is divided into three distinct stages connected by HLS streams (FIFOs), allowing overlapping execution:
+The design uses a **Task-Level Parallelism (TLP)** approach using the `DATAFLOW` pragma. The processing pipeline is divided into three distinct stages connected by HLS streams (FIFOs), allowing overlapping execution:
 
 1.  **Read Engine (`read_data`)**: Fetches data from global memory via AXI4-Master and pushes it to an input stream.
 2.  **Compute Engine (`compute`)**: Reads from the stream, performs the weighted sum multiplication, and pushes results to an output stream.
