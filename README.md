@@ -1,7 +1,5 @@
 # Weighted Sum Accelerator IP
 
-![Vitis HLS](https://img.shields.io/badge/Vitis_HLS-2025.1-blue) ![Target Device](https://img.shields.io/badge/Target-Zynq_7000-green) ![Language](https://img.shields.io/badge/Language-C++-orange)
-
 ## Overview
 This repository contains a simple hardware accelerator designed using **Vitis HLS** to perform weighted sum computations. The IP core is optimized for the **Xilinx Zynq-7000** platform (`xc7z007sclg400-1`) and utilizes a stream-based dataflow architecture to maximize throughput and parallel execution.
 
